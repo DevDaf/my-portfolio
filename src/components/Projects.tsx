@@ -1,27 +1,28 @@
 import Image from "next/image"
+import Link from "next/link"
+
+const projects = [
+  {
+    title: "E-commerce Website",
+    description: "A fully responsive e-commerce site built with Next.js and Stripe integration.",
+    image: "/ecommerce.jpg",
+    link: "https://github.com/yourusername/ecommerce-project",
+  },
+  {
+    title: "Bookstore Application",
+    description: "An online bookstore with a vast catalog and user review system.",
+    image: "/bookstore.jpg",
+    link: "https://github.com/yourusername/bookstore-project",
+  },
+  {
+    title: "Portfolio Website",
+    description: "A customizable portfolio template for developers, built with Next.js and Tailwind CSS.",
+    image: "/portfolio.jpg",
+    link: "https://github.com/yourusername/portfolio-project",
+  },
+]
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "E-commerce Website",
-      description: "A fully responsive e-commerce site built with Next.js and Stripe integration.",
-      image: "/placeholder.svg?height=200&width=300",
-      link: "#",
-    },
-    {
-      title: "Task Management App",
-      description: "A React-based task management application with drag-and-drop functionality.",
-      image: "/placeholder.svg?height=200&width=300",
-      link: "#",
-    },
-    {
-      title: "Portfolio Website",
-      description: "A customizable portfolio template for developers, built with Gatsby and GraphQL.",
-      image: "/placeholder.svg?height=200&width=300",
-      link: "#",
-    },
-  ]
-
   return (
     <section className="py-20 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
@@ -35,16 +36,21 @@ export default function Projects() {
               <Image
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
-                width={300}
-                height={200}
+                width={600}
+                height={400}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 dark:text-white">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                <a href={project.link} className="text-blue-500 hover:text-blue-600 font-medium">
-                  View Project
-                </a>
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600 font-medium"
+                >
+                  View on GitHub
+                </Link>
               </div>
             </div>
           ))}
